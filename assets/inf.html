@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inflation Calculator App</title>
+    <title>Inflation Conversion Tool</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
@@ -12,11 +12,11 @@
   </head>
 
   <body class="has-background-info">
-    <header class="navbar has-shadow is-primary columns is-mobile">
+    <header class="navbar has-shadow is-primary columns is-mobile pt-3 px-6 pb-6">
       <div class="column">
         <figure class="is-120x120">
           <img
-            src="images/eagle-logo.jpg"
+            src="images/eagle-logo_360.jpg"
             alt="logo"
             class="navbar-brand image is-rounded"
             width="120"
@@ -43,9 +43,9 @@
       </nav>
     </header>
 
-    <section class="section">
-      <h2 class="subtitle has-text-centered mb-5">Make Dollars Make Sense</h2>
-      <div class="container">
+    <section class="section py-6">
+      <h2 class="subtitle has-text-centered mb-5 py-4 is-italic">"Make Dollars Make Sense"</h2>
+      <div class="container py-6">
         <div class="columns">
           <div class="column">
             <div class="box has-text-centered has-background-success">
@@ -318,7 +318,7 @@
             </div>
           </div>
           <div class="column">
-            <div class="box has-text-centered has-background-success">
+            <div class="box has-text-centered has-background-success pb-6">
               <h2 class="is-size-3 has-text-centered">Yesterday's Dollar</h2>
               <figure class="image is-292x292">
                 <img
@@ -328,7 +328,7 @@
                 />
               </figure>
               <form id="yesterday-dollar" name="yesterdayDollar">
-                <p>$1 in the year</p>
+                <p class="pt-3">$1 in the year</p>
                 <div class="control">
                   <div class="select">
                     <select id="yesterday-dropdown" name="yesterdayYearSelect">
@@ -579,7 +579,7 @@
             </div>
           </div>
           <div class="column">
-            <div class="box has-text-centered has-background-success">
+            <div class="box has-text-centered has-background-success pb-6">
               <h2 class="is-size-3 has-text-centered">Whenever's Dollar</h2>
               <figure class="image is-292x292">
                 <img
@@ -589,7 +589,7 @@
                 />
               </figure>
               <form id="whenever-dollar">
-                <label class="has-text-centered">$ in 2024</label>
+                <p class="has-text-centered pt-3">$ in 2024</pp>
                 <input
                   class="input"
                   type="number"
@@ -612,7 +612,61 @@
       <h2 class="is-size-6 has-text-centered mt-5 is-italic">
         Fun Fact: With the signing of the <a href=https://en.wikipedia.org/wiki/Coinage_Act_of_1792> Coinage Act of 1792</a>, Congress created the US Dollar, established the US Mint, and regulated the production of coins.  </h2>
     </section>
-    <footer class="footer has-background-primary">
+
+
+
+    <div class="modal" id="sources-modal">
+      <div class="modal-background" id="sources-background"></div>  
+        <div class="modal-content has-background-success py-5 px-6">
+          <h2 class="title has-text-centered">Source Material</h2>
+          <ul class="has-text-centered">
+            <li>
+              <a
+                href="https://www.officialdata.org/us/inflation/1776?amount=1#:~:text=%241%20in%201776%20is%20equivalent,cumulative%20price%20increase%20of%203%2C511.21%25."
+                >CPI Inflation Calculator (Bureau of Labor Statistics)</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://en.wikipedia.org/wiki/Coinage_Act_of_1792">Coinage Act of 1792 Wikipedia</a>
+            </li>
+          </ul>
+        </div>        
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+      <div class="modal-background" id="contact-background"></div>  
+        <div class="modal-content has-background-success py-5 px-5">
+          <h2 class="title has-text-centered">Created By:</h2>
+          <ul class="has-text-centered">
+            <li>
+              <a href="https://www.github.com/aaronpierce2880">Aaron Pierce</a>
+            </li>
+            <li><a href="https://www.github.com/eric7string">Eric Neff</a></li>
+            <li><a href="https://www.github.com/LouisMKE">Louis Cary</a></li>
+          </ul>
+        </div>        
+    </div>
+
+    <div class="modal" id="result-modal">
+      <div class="modal-background" id="result-background"></div>
+        <div class="modal-content has-background-success py-5 px-5">
+          <h2 class="title has-text-centered">Result</h2>
+          <div id="result-body" class="has-text-centered"></div>
+        </div>        
+    </div>
+
+    <div class="modal" id="history-modal">
+      <div class="modal-background" id="history-background"></div>  
+        <div class="modal-content has-background-success py-5 px-5">
+          <h2 class="title has-text-centered">Conversion History</h2>
+          <div id="history-body" class="has-text-centered"></div>
+        </div>
+    </div>
+
+
+    <footer class="footer has-background-primary py-6">
       <div class="content has-text-centered columns">
         <div class="column">
           <button class="button is-warning" id="history-button">
@@ -629,55 +683,6 @@
     </footer>
 
     <!-- Sources Modal -->
-    <div class="modal" id="sources-modal">
-      <div class="modal-background" id="sources-background">
-        <div class="modal-content has-background-success py-5 px-6">
-          <h2 class="title has-text-centered">Source Material</h2>
-          <ul class="has-text-centered">
-            <li>
-              <a
-                href="https://www.officialdata.org/us/inflation/1776?amount=1#:~:text=%241%20in%201776%20is%20equivalent,cumulative%20price%20increase%20of%203%2C511.21%25."
-                >CPI Inflation Calculator (Bureau of Labor Statistics)</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contact Modal -->
-    <div class="modal" id="contact-modal">
-      <div class="modal-background" id="contact-background">
-        <div class="modal-content has-background-success py-5 px-5">
-          <h2 class="title has-text-centered">Created By:</h2>
-          <ul class="has-text-centered">
-            <li>
-              <a href="https://www.github.com/aaronpierce2880">Aaron Pierce</a>
-            </li>
-            <li><a href="https://www.github.com/eric7string">Eric Neff</a></li>
-            <li><a href="https://www.github.com/LouisMKE">Louis Cary</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" id="result-modal">
-      <div class="modal-background" id="result-background">
-        <div class="modal-content has-background-success py-5 px-5">
-          <h2 class="title has-text-centered">Result</h2>
-          <div id="result-body" class="has-text-centered"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" id="history-modal">
-      <div class="modal-background" id="history-background">
-        <div class="modal-content has-background-success py-5 px-5">
-          <h2 class="title has-text-centered">Conversion History</h2>
-          <div id="history-body" class="has-text-centered"></div>
-        </div>
-      </div>
-    </div>
 
     <script src="data.js"></script>
     <script src="inf.js"></script>
