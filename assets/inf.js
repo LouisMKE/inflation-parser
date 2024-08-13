@@ -1,9 +1,7 @@
-// parse info from input
 const todayDollar = document.getElementById("today-dollar");
 const yesterdayDollar = document.getElementById("yesterday-dollar");
 const wheneverDollar = document.getElementById("whenever-dollar");
 
-// year must be a number between 1792-2023
 const isValidYear = function (year) {
   const parsedYear = parseInt(year);
   if (isNaN(parsedYear)) {
@@ -23,9 +21,6 @@ const getInflationData = function (year) {
 };
 
 const getInflationResult = function (amount, fromData, toData) {
-  console.info(amount);
-  console.info(fromData);
-  console.info(toData);
   const inflationRatio = toData.amount / fromData.amount;
   return {
     start: {
@@ -41,14 +36,6 @@ const getInflationResult = function (amount, fromData, toData) {
 
 
 
-
-
-
-
-
-
-
-
 todayDollar.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -56,12 +43,18 @@ todayDollar.addEventListener("submit", (e) => {
   const year = inputs.todayYearSelect.value;
   if (!isValidYear(year)) {
     alert(
-      "👵\n That's not how this works.\n Thats not how ANY of this works\n👵"
+      "Please Select a Valid Year"
     );
     return;
   }
 
   const amount = inputs.todayAmount.value;
+  if (!amount) {
+    alert(
+      "Please Enter a Dollar Amount"
+    );
+    return;
+  }
   const fromInflationData = getInflationData(2024);
   const toInflationData = getInflationData(year);
   const resultData = getInflationResult(
@@ -80,7 +73,7 @@ yesterdayDollar.addEventListener("submit", (e) => {
   const year = inputs.yesterdayYearSelect.value;
   if (!isValidYear(year)) {
     alert(
-      "👵\n That's not how this works.\n Thats not how ANY of this works\n👵"
+      "Please Select a Valid Year"
     );
     return;
   }
@@ -97,6 +90,12 @@ wheneverDollar.addEventListener("submit", (e) => {
   const year = Math.floor(Math.random() * (2023 - 1792) + 1792);
   console.log(year);
   const amount = inputs.wheneverAmount.value;
+  if (!amount) {
+    alert(
+      "Please Enter a Dollar Amount"
+    );
+    return;
+  }
   const fromInflationData = getInflationData(2024);
   const toInflationData = getInflationData(year);
   const resultData = getInflationResult(
@@ -107,4 +106,4 @@ wheneverDollar.addEventListener("submit", (e) => {
   showResultModal(resultData);
 });
 
-// map to year from data array
+

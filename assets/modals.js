@@ -12,6 +12,7 @@ sourceBackground.addEventListener("click", () => {
   sourceModal.classList.remove("is-active");
 });
 //#endregion
+
 //#region Contact Modal
 const contactBtn = document.getElementById("contact-button");
 const contactModal = document.getElementById("contact-modal");
@@ -71,3 +72,5 @@ historyBtn.addEventListener("click", () => {
 historyBackground.addEventListener("click", () => {
   historyModal.classList.remove("is-active");
 });
+
+// #endregion
